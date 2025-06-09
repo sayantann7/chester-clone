@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import ProjectsGrid from '@/components/ProjectsGrid';
@@ -11,6 +12,18 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('chester');
+
+  const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    in: { opacity: 1, y: 0 },
+    out: { opacity: 0, y: -20 }
+  };
+
+  const pageTransition = {
+    type: 'tween',
+    ease: 'anticipate',
+    duration: 0.5
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -35,7 +48,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
-      {renderContent()}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          {renderContent()}
+        </motion.div>
+      </AnimatePresence>
       <Footer />
     </div>
   );

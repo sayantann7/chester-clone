@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface NavigationProps {
   activeTab: string;
@@ -22,31 +23,40 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <nav className="flex items-center justify-between px-8 py-6 bg-background border-b border-border/30">
-      <div className="flex items-center space-x-8">
+    <motion.nav 
+      className="flex items-center justify-between px-6 py-4 bg-background border-b border-border/20"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex items-center space-x-6">
         {tabs.map((tab) => (
-          <button
+          <motion.button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`nav-tab ${activeTab === tab.id ? 'active' : ''}`}
+            className={`nav-tab text-sm ${activeTab === tab.id ? 'active' : ''}`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {tab.label}
-          </button>
+          </motion.button>
         ))}
       </div>
       
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-4">
         {socialLinks.map((link) => (
-          <a
+          <motion.a
             key={link.label}
             href={link.href}
             className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             {link.label}
-          </a>
+          </motion.a>
         ))}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

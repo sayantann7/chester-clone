@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
 const ProjectsGrid: React.FC = () => {
@@ -76,16 +77,31 @@ const ProjectsGrid: React.FC = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
-    <div className="max-w-7xl mx-auto px-8 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {projects.map((project, index) => (
           <ProjectCard
             key={index}
             {...project}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
