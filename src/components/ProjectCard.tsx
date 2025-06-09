@@ -37,9 +37,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     }
   };
 
-  const getTagColor = (index: number) => {
+  const getTagColor = (tag: string) => {
+    if (tag === 'TO READ') return 'tag-pink';
+    if (tag === 'READING') return 'tag-orange';
+    if (tag === 'READ') return 'tag-green';
+    if (tag === 'FILTER') return 'tag-green';
+    if (tag === 'NOW BREWING') return 'tag-orange';
+    if (tag === 'ESPRESSO') return 'tag-purple';
+    if (tag === 'ARACEAE') return 'tag-blue';
+    
     const colors = ['tag-blue', 'tag-green', 'tag-orange', 'tag-purple', 'tag-pink'];
-    return colors[index % colors.length];
+    return colors[Math.abs(tag.length) % colors.length];
   };
 
   return (
@@ -63,15 +71,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       )}
       
-      <div className="p-5">
-        <div className="flex items-start justify-between mb-3">
-          <div className="text-xs text-muted-foreground uppercase tracking-wider">
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-4">
+          <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
             {category}
           </div>
           <ArrowUpRight className="w-4 h-4 text-muted-foreground opacity-60" />
         </div>
         
-        <h3 className="text-lg font-semibold text-foreground mb-2 font-crimson leading-tight">
+        <h3 className="text-xl font-crimson text-foreground mb-3 leading-tight">
           {title}
         </h3>
         
@@ -82,7 +90,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         
         {author && (
-          <p className="text-muted-foreground text-sm mb-3">
+          <p className="text-muted-foreground text-sm mb-3 font-medium">
             {author}
           </p>
         )}
@@ -94,7 +102,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         
         {description && (
-          <p className="text-foreground text-sm mb-4 leading-relaxed">
+          <p className="text-foreground text-sm mb-4 leading-relaxed whitespace-pre-line">
             {description}
           </p>
         )}
@@ -104,7 +112,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {tags.map((tag, index) => (
               <motion.span 
                 key={tag} 
-                className={`tag ${getTagColor(index)}`}
+                className={`tag ${getTagColor(tag)}`}
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: index * 0.1 }}

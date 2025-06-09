@@ -6,74 +6,35 @@ import ProjectCard from './ProjectCard';
 const ProjectsGrid: React.FC = () => {
   const projects = [
     {
+      title: "Fields of Chess",
+      category: "Projects • Fields of Chess",
+      image: "/lovable-uploads/ac4460e5-f23e-444e-b263-5547ae8b643b.png",
+      size: "medium" as const
+    },
+    {
       title: "Design details that feel like magic.",
       category: "Projects • Design Spells",
-      image: "/lovable-uploads/ac4460e5-f23e-444e-b263-5547ae8b643b.png",
-      size: "large" as const,
+      image: "/lovable-uploads/030096e1-cddc-4e38-885a-590dff30eb44.png",
+      size: "medium" as const,
       description: "Magic in your mailbox, every alternate Saturday."
     },
     {
-      title: "Let's Billbreak",
-      category: "Projects • Billbreak",
-      image: "/lovable-uploads/ac4460e5-f23e-444e-b263-5547ae8b643b.png",
-      size: "medium" as const
-    },
-    {
-      title: "2022.12.05 @ Fit Bloc",
-      category: "Hobbies • Climbing",
-      image: "/lovable-uploads/ac4460e5-f23e-444e-b263-5547ae8b643b.png",
-      size: "medium" as const
-    },
-    {
-      title: "What the heck is a digital garden?",
-      category: "Writing • Blog",
-      date: "February 1, 2023",
-      description: "So you've landed on my site (or not, that's okay you can check it out here), and you're curious about this \"digital garden\" thing. Or perhaps you've heard of digital gardens..."
-    },
-    {
-      title: "FilmNeverDie KIRO 400",
-      category: "Projects • Snob",
-      image: "/lovable-uploads/030096e1-cddc-4e38-885a-590dff30eb44.png"
-    },
-    {
-      title: "Fields of Chess",
-      category: "Projects • Fields of Chess",
-      image: "/lovable-uploads/030096e1-cddc-4e38-885a-590dff30eb44.png"
-    },
-    {
-      title: "The Design of Everyday Things",
-      category: "Reading • Books",
-      author: "Donald A. Norman",
-      tags: ["READING"]
-    },
-    {
-      title: "Colombia Finca La...",
-      category: "Hobbies • Coffee",
-      description: "Colombia • Apartment Coffee\nBlackberry, white peach and grapefruit",
-      tags: ["FILTER", "NOW BREWING"]
-    },
-    {
-      title: "Snob.",
-      category: "Projects • Snob",
-      description: "Notes of joy 🌈, miscat and berries.",
-      image: "/lovable-uploads/d9132a85-6867-49b6-b29f-63bd0375ada6.png"
-    },
-    {
-      title: "Kentmere Pan 400",
-      category: "Reading • Books",
-      image: "/lovable-uploads/d9132a85-6867-49b6-b29f-63bd0375ada6.png"
-    },
-    {
-      title: "Children of Dune",
-      category: "Reading • Books",
-      author: "Frank Herbert",
-      tags: ["READ"]
-    },
-    {
-      title: "Philodendron hederaceum 'Micans'",
-      category: "Hobbies • Plants",
+      title: "Progression",
+      category: "Projects • Progression",
       image: "/lovable-uploads/d9132a85-6867-49b6-b29f-63bd0375ada6.png",
-      tags: ["ARACEAE"]
+      size: "medium" as const
+    },
+    {
+      title: "Foldaway",
+      category: "Projects • Foldaway",
+      image: "/lovable-uploads/714be220-faf1-4c4e-a68e-0f779c3044fd.png",
+      size: "medium" as const
+    },
+    {
+      title: "MouseHunt Helper",
+      category: "Projects • MouseHunt Helper",
+      image: "/lovable-uploads/ac4460e5-f23e-444e-b263-5547ae8b643b.png",
+      size: "medium" as const
     }
   ];
 
@@ -89,8 +50,22 @@ const ProjectsGrid: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="mb-16"
+      >
+        <h1 className="text-6xl font-crimson mb-8 text-foreground">projects.</h1>
+        <p className="text-xl text-muted-foreground font-crimson leading-relaxed max-w-3xl">
+          I like building things. Here are a few things I've built thus far that I'm pretty pleased with.
+          <br />
+          Most, if not all of them, were built for fun.
+        </p>
+      </motion.div>
+
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
