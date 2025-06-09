@@ -12,36 +12,48 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hey there, I'm <span className="font-semibold">Chester</span> 👋 Welcome to my{' '}
-          <span className="font-semibold">digital garden</span> 🌱 I like building{' '}
-          <span className="font-semibold">things</span>, and I'm currently helping to build{' '}
+          <span className="text-muted-foreground font-normal">Hey there, I'm </span>
+          <span className="font-semibold text-foreground">Chester</span>
+          <span className="text-muted-foreground font-normal"> 👋 Welcome to my </span>
+          <span className="font-semibold text-foreground">digital garden</span>
+          <span className="text-muted-foreground font-normal"> 🌱 I like building </span>
+          <span className="font-semibold text-foreground">things</span>
+          <span className="text-muted-foreground font-normal">, and I'm currently helping to build </span>
           <motion.span 
-            className="font-semibold underline decoration-blue-400 decoration-wavy"
+            className="font-semibold text-foreground underline decoration-blue-400 decoration-wavy"
             whileHover={{ scale: 1.05 }}
           >
             Mobbin
-          </motion.span>.
+          </motion.span>
+          <span className="text-muted-foreground font-normal">.</span>
         </motion.h1>
         
         <motion.p 
-          className="text-2xl font-crimson leading-relaxed text-foreground mt-12"
+          className="text-2xl font-crimson leading-relaxed mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          In my free time, I enjoy brewing <span className="font-semibold">coffee</span>, tending to my{' '}
-          <span className="font-semibold">plants</span> and <span className="font-semibold">climbing</span>{' '}
-          (plastic) rocks.
+          <span className="text-muted-foreground font-normal">In my free time, I enjoy brewing </span>
+          <span className="font-semibold text-foreground">coffee</span>
+          <span className="text-muted-foreground font-normal">, tending to my </span>
+          <span className="font-semibold text-foreground">plants</span>
+          <span className="text-muted-foreground font-normal"> and </span>
+          <span className="font-semibold text-foreground">climbing</span>
+          <span className="text-muted-foreground font-normal"> (plastic) rocks.</span>
         </motion.p>
         
         <motion.p 
-          className="text-2xl font-crimson leading-relaxed text-foreground mt-12"
+          className="text-2xl font-crimson leading-relaxed mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          I do some <span className="font-semibold">reading</span> and{' '}
-          <span className="font-semibold">writing</span> as well, albeit not as consistently, but I'm working on being better at that.
+          <span className="text-muted-foreground font-normal">I do some </span>
+          <span className="font-semibold text-foreground">reading</span>
+          <span className="text-muted-foreground font-normal"> and </span>
+          <span className="font-semibold text-foreground">writing</span>
+          <span className="text-muted-foreground font-normal"> as well, albeit not as consistently, but I'm working on being better at that.</span>
         </motion.p>
       </div>
     </div>
