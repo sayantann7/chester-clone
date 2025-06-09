@@ -13,17 +13,33 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="text-muted-foreground font-normal">Hey there, I'm </span>
-          <span className="font-semibold text-foreground">Chester</span>
+          <motion.span 
+            className="font-semibold text-foreground relative cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+          >
+            Chester
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 hover:w-full group-hover:w-full"></span>
+            <style jsx>{`
+              span:hover .absolute {
+                width: 100%;
+              }
+            `}</style>
+          </motion.span>
           <span className="text-muted-foreground font-normal"> 👋 Welcome to my </span>
           <span className="font-semibold text-foreground">digital garden</span>
           <span className="text-muted-foreground font-normal"> 🌱 I like building </span>
           <span className="font-semibold text-foreground">things</span>
           <span className="text-muted-foreground font-normal">, and I'm currently helping to build </span>
           <motion.span 
-            className="font-semibold text-foreground underline decoration-blue-400 decoration-wavy"
+            className="font-semibold text-foreground relative cursor-pointer group"
             whileHover={{ scale: 1.05 }}
           >
             Mobbin
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" style={{ textDecoration: 'none' }}></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full group-hover:animate-pulse" style={{ 
+              clipPath: 'polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)',
+              transform: 'scaleY(2)'
+            }}></span>
           </motion.span>
           <span className="text-muted-foreground font-normal">.</span>
         </motion.h1>
