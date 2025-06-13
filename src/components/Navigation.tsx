@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 interface NavigationProps {
   activeTab: string;
@@ -52,6 +53,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
       </div>
       
       <div className="flex items-center space-x-4">
+        <ThemeToggle />
         {socialLinks.map((link) => (
           <motion.a
             key={link.label}

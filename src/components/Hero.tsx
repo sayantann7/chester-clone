@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -14,16 +13,11 @@ const Hero: React.FC = () => {
         >
           <span className="text-muted-foreground font-normal">Hey there, I'm </span>
           <motion.span 
-            className="font-semibold text-foreground relative cursor-pointer"
+            className="font-semibold text-foreground relative cursor-pointer group"
             whileHover={{ scale: 1.02 }}
           >
             Chester
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 hover:w-full group-hover:w-full"></span>
-            <style jsx>{`
-              span:hover .absolute {
-                width: 100%;
-              }
-            `}</style>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
           </motion.span>
           <span className="text-muted-foreground font-normal"> 👋 Welcome to my </span>
           <span className="font-semibold text-foreground">digital garden</span>
@@ -35,11 +29,7 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.05 }}
           >
             Mobbin
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" style={{ textDecoration: 'none' }}></span>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full group-hover:animate-pulse" style={{ 
-              clipPath: 'polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)',
-              transform: 'scaleY(2)'
-            }}></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
           </motion.span>
           <span className="text-muted-foreground font-normal">.</span>
         </motion.h1>
