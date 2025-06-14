@@ -62,6 +62,7 @@ export default {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
 				'crimson': ['Crimson Text', 'serif'],
+				'canela': ['Canela', 'serif'],
 			},
 			keyframes: {
 				'accordion-down': {

@@ -88,6 +88,11 @@
     font-family: 'Crimson Text', Georgia, serif;
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   }
+
+  .font-canela {
+    font-family: 'Canela', Georgia, serif;
+    font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  }
 }
 
 @layer components {
@@ -137,4 +142,85 @@
   .tag-pink {
     @apply bg-pink-50 text-pink-700 border border-pink-200;
   }
+
+  /* Bento grid styles */
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
+
+  .bento-item {
+    @apply rounded-3xl overflow-hidden border border-border/30 bg-card shadow-sm hover:shadow-lg transition-all duration-300;
+    border-width: 0.5px;
+  }
+
+  .bento-item:hover {
+    @apply shadow-2xl;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+  }
+
+  .bento-image {
+    @apply w-full h-full object-cover transition-transform duration-300;
+  }
+
+  .bento-item:hover .bento-image {
+    transform: scale(1.05);
+  }
+
+
+  .hero-bento-item {
+    @apply relative overflow-hidden rounded-xl border border-border/30 bg-card shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .hero-bento-item:hover {
+    @apply shadow-lg;
+    transform: translateY(-5px);
+  }
+  
+  .hero-bento-image {
+    @apply w-full h-full object-cover transition-transform duration-300;
+  }
+  
+  .hero-bento-item:hover .hero-bento-image {
+    transform: scale(1.05);
+  }
+  
+  .hero-bento-content {
+    @apply absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  
+  .hero-bento-item:hover .hero-bento-content {
+    @apply opacity-100;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Canela Font */
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Regular.woff2') format('woff2'),
+       url('/fonts/Canela-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Medium.woff2') format('woff2'),
+       url('/fonts/Canela-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Bold.woff2') format('woff2'),
+       url('/fonts/Canela-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
